@@ -11,6 +11,9 @@ class Pet extends Model {
   birthYear!: number;
   dateAdded!: string;
   photoUrl!: string;
+  createdAt!: Date;
+  updatedAt!: Date;
+  deletedAt!: Date;
 }
 
 Pet.init(
@@ -38,10 +41,15 @@ Pet.init(
     photoUrl: {
       type: DataTypes.STRING,
     },
+    deletedAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
   },
   {
     sequelize,
     modelName: 'Pet',
+    paranoid: true,
     tableName: 'pets',
   }
 );

@@ -9,7 +9,9 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.js\"",
     "test": "jest",
     "lint": "eslint **/*.ts",
-    "lazy": "npm install && npm run build && npm run dev"
+    "cleanup": "rm -rf dist node_modules",
+    "lazy": "npm install && npm run build && npm run dev",
+    "iamlazy": "npm run cleanup && npm run lazy"
   },
   "keywords": [],
   "author": "",

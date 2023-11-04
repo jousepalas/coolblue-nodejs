@@ -1,16 +1,19 @@
 -- Create the "pets" table
 CREATE TABLE pets (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     species VARCHAR(255) NOT NULL,
     available BOOLEAN NOT NULL,
     birthYear INT NOT NULL,
     dateAdded DATE NOT NULL,
-    photoUrl VARCHAR(255) NOT NULL
+    photoUrl VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
+    deletedAt DATE DEFAULT NULL
 );
 
 -- Insert data into the "pets" table
-INSERT INTO pets (id, name, species, available, birthYear, dateAdded, photoUrl)
+    INSERT INTO pets (id, name, species, available, birthYear, dateAdded, photoUrl)
 VALUES
     (1, 'Daamin', 'Cat', FALSE, 2012, '2021-06-19', 'https://i.imgur.com/wpfirW7l.jpg'),
     (2, 'Dann', 'Dog', TRUE, 2016, '2022-01-01', 'https://i.imgur.com/ES0AHRxl.jpg'),

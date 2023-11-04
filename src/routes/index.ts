@@ -8,7 +8,10 @@ export function initRoutes(app: Express): void {
 
   app.get('/api/pets', PetController.getAllPets);
   app.get('/api/pets/:id', PetController.getPetById);
-  app.post('/api/pets', PetController.createPet);
-  app.put('/api/pets/:id', PetController.updatePet);
-  app.delete('/api/pets/:id', PetController.deletePet);
+  app.post('/api/auth/pets', PetController.createPet);
+  app.put('/api/auth/pets/:id', PetController.updatePet);
+  app.delete('/api/auth/pets/soft/:id', PetController.softDeletePet);
+  app.delete('/api/auth/pets/:id', PetController.deletePet);
+  app.get('/api/auth/pets/restore/:id', PetController.restorePet);
+  app.get('/api/auth/pets/soft-deleted', PetController.deletedPets);
 }
