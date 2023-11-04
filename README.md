@@ -18,9 +18,11 @@ Back-end project exercise developed to demonstrate proficiency in Node.Js TypeSc
 - dev: "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.js\"",
 
 # Author
-@jousepalas
-jousepalas@hotmail.com
-www.jousepalas.nl
+- @jousepalas
+
+- jousepalas@hotmail.com
+
+- www.jousepalas.nl
 
 # References
 - [Node.js](https://nodejs.org/en/)
