@@ -2,20 +2,24 @@
   "name": "mr-nodejs-backend-exercise",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "npx tsc",
     "serve": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.js\"",
     "test": "jest",
-    "lint": "eslint **/*.ts"
+    "lint": "eslint **/*.ts",
+    "lazy": "npm install && npm run build && npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql2": "^3.6.3",
+    "sequelize": "^6.34.0",
+    "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
     "@types/express": "^4.17.20",

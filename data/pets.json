@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Daamin",
+    "species": "Cat",
+    "available": false,
+    "birthYear": 2012,
+    "dateAdded": "19-06-2021",
+    "photoUrl": "https://i.imgur.com/wpfirW7l.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Dann",
+    "species": "Dog",
+    "available": true,
+    "birthYear": 2016,
+    "dateAdded": "01-01-2022",
+    "photoUrl": "https://i.imgur.com/ES0AHRxl.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Annemie",
+    "species": "Dog",
+    "available": true,
+    "birthYear": 2008,
+    "dateAdded": "25-04-2021",
+    "photoUrl": "https://i.imgur.com/cL9Su9ql.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Baxter",
+    "species": "Cat",
+    "available": true,
+    "birthYear": 2020,
+    "dateAdded": "13-08-2021",
+    "photoUrl": "https://i.imgur.com/uvkCHCyl.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Beau",
+    "species": "Cat",
+    "available": false,
+    "birthYear": 2013,
+    "dateAdded": "15-12-2021",
+    "photoUrl": "https://i.imgur.com/dZXHXHnl.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Echo",
+    "species": "Dog",
+    "available": false,
+    "birthYear": 2019,
+    "dateAdded": "20-12-2021",
+    "photoUrl": "https://i.imgur.com/KkxqmNsl.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Arlo",
+    "species": "Rat",
+    "available": true,
+    "birthYear": 2010,
+    "dateAdded": "27-01-2022",
+    "photoUrl": "https://i.imgur.com/cw1ScXPl.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Romeo",
+    "species": "Dog",
+    "available": true,
+    "birthYear": 2015,
+    "dateAdded": "05-02-2021",
+    "photoUrl": "https://i.imgur.com/7E8m93Wl.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Tank",
+    "species": "Dog",
+    "available": false,
+    "birthYear": 2015,
+    "dateAdded": "05-08-2021",
+    "photoUrl": "https://i.imgur.com/Q4CSFnXl.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Henry",
+    "species": "Cat",
+    "available": true,
+    "birthYear": 2009,
+    "dateAdded": "18-02-2021",
+    "photoUrl": "https://i.imgur.com/wt5AGpRl.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Coco",
+    "species": "Dog",
+    "available": false,
+    "birthYear": 2007,
+    "dateAdded": "11-10-2021",
+    "photoUrl": "https://i.imgur.com/AxzxKXkl.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Riley",
+    "species": "Dog",
+    "available": false,
+    "birthYear": 2018,
+    "dateAdded": "11-01-2022",
+    "photoUrl": "https://i.imgur.com/xIqqOVzl.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Ace",
+    "species": "Dog",
+    "available": false,
+    "birthYear": 2018,
+    "dateAdded": "21-01-2021",
+    "photoUrl": "https://i.imgur.com/N1ZEtEwl.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Louie",
+    "species": "Dog",
+    "available": true,
+    "birthYear": 2016,
+    "dateAdded": "23-07-2021",
+    "photoUrl": "https://i.imgur.com/3sbNyval.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Toby",
+    "species": "Cat",
+    "available": true,
+    "birthYear": 2019,
+    "dateAdded": "23-08-2021",
+    "photoUrl": "https://i.imgur.com/gKGKsTgl.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Mac",
+    "species": "Cat",
+    "available": true,
+    "birthYear": 2014,
+    "dateAdded": "29-10-2021",
+    "photoUrl": "https://i.imgur.com/1o7jhPfl.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Murphy",
+    "species": "Dog",
+    "available": true,
+    "birthYear": 2017,
+    "dateAdded": "29-05-2021",
+    "photoUrl": "https://i.imgur.com/9c3OfRUl.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Buster",
+    "species": "Dog",
+    "available": "Yes",
+    "birthYear": 2017,
+    "dateAdded": "12-01-2022",
+    "photoUrl": "https://i.imgur.com/0FdlwHxl.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Moose",
+    "species": "Cat",
+    "available": false,
+    "birthYear": 2014,
+    "dateAdded": "14-01-2022",
+    "photoUrl": "https://i.imgur.com/E24QYnzl.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Bruno",
+    "species": "Dog",
+    "available": true,
+    "birthYear": 2010,
+    "dateAdded": "19-01-2022",
+    "photoUrl": "https://i.imgur.com/y5MOaAbl.jpg"
+  }
+]
