@@ -13,15 +13,9 @@ Back-end project exercise developed to demonstrate proficiency in Node.Js TypeSc
 - Prettier
 
 # Scripts
-- `npm run dev` - run the application in development mode
-- `npm run build` - build the application
-- `npm run start` - run the application in production mode
-- `npm run test` - run the tests
-- `npm run test:watch` - run the tests in watch mode
-- `npm run lint` - run the linter
-- `npm run lint:fix` - run the linter and fix the errors
-- `npm run format` - format the code
-- `npm run format:fix` - format the code and fix the errors
+- build: "npx tsc",
+- serve: "node dist/index.js",
+- dev: "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.js\"",
 
 # Author
 @jousepalas
