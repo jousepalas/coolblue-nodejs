@@ -5,7 +5,10 @@ export function initRoutes(app: Express): void {
   app.get('/', (req: Request, res: Response) => {
     res.send('Test route works!');
   });
-
+  // User routes
+  
+  
+  // Pet routes
   app.get('/api/pets', PetController.getAllPets);
   app.get('/api/pets/:id', PetController.getPetById);
   app.post('/api/auth/pets', PetController.createPet);

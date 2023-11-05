@@ -1,0 +1,65 @@
+// src/models/User.ts
+
+import { Model, DataTypes } from 'sequelize';
+import { sequelize } from '../config/db';
+
+class User extends Model {
+    public id!: number;
+    public name!: string;
+    public email!: string;
+    public password!: string;
+    public role!: 'user' | 'admin' | 'guest';
+    public createdAt!: Date;
+    public updatedAt!: Date;
+    public deletedAt!: Date | null;
+  }
+
+  User.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      role: {
+        type: DataTypes.ENUM('user', 'admin', 'guest'),
+        allowNull: false,
+        defaultValue: 'user',
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+    },
+    {
+      sequelize,
+      modelName: 'User',
+      timestamps: true,
+      paranoid: true, 
+      underscored: true,
+      tableName: 'users',
+    }
+  );
+
+  export { User };
