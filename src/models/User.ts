@@ -4,14 +4,14 @@ import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../config/db';
 
 class User extends Model {
-    public id!: number;
-    public name!: string;
-    public email!: string;
-    public password!: string;
-    public role!: 'user' | 'admin' | 'guest';
-    public createdAt!: Date;
-    public updatedAt!: Date;
-    public deletedAt!: Date | null;
+     id!: number;
+     name!: string;
+     email!: string;
+     password!: string;
+     role!: 'user' | 'admin' | 'guest';
+     createdAt!: Date;
+     updatedAt!: Date;
+     deletedAt!: Date | null;
   }
 
   User.init(
@@ -55,9 +55,6 @@ class User extends Model {
     {
       sequelize,
       modelName: 'User',
-      timestamps: true,
-      paranoid: true, 
-      underscored: true,
       tableName: 'users',
     }
   );
