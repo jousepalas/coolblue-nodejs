@@ -1,7 +1,7 @@
-// models/Pet.ts
+// src/models/Pet.ts
 
 import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '../config/db'; // Import your Sequelize instance
+import { sequelize } from '../config/db';
 
 class Pet extends Model {
   id!: number;

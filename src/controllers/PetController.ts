@@ -6,7 +6,7 @@ class PetController {
   public async getAllPets(req: Request, res: Response): Promise<void> {
     try {
       const pets = await Pet.findAll();
-      res.json({success: true, data: pets});
+      res.status(200).json({success: true, data: pets});
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:10 ~ PetController ~ getAllPets ~ error:", error)
       res.status(500).json({ success: false, message: 'Failed to fetch pets' });;
@@ -20,7 +20,7 @@ class PetController {
       const pet = await Pet.findByPk(petId);
 
       if (pet) {
-        res.json({success: true, data: pet});
+        res.status(200).json({success: true, data: pet});
       } else {
         res.status(404).json({ success: false, message: `Pet id: ${petId} not found` });
       }
@@ -35,7 +35,7 @@ class PetController {
 
     try {
       const pet = await Pet.create(newPetData);
-      res.json({success: true, data: pet});
+      res.status(201).json({success: true, data: pet});
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:40 ~ PetController ~ createPet ~ error:", error)
       res.status(500).json({ message: 'Failed to create a pet', error });
@@ -47,14 +47,15 @@ class PetController {
     const updatedPetData = req.body;
 
     try {
-      const [updatedPet] = await Pet.update(updatedPetData, {
+      const updatedPet = await Pet.update(updatedPetData, {
         where: { id: petId},
       });
-
-      if (updatedPet === 0) {
-        res.status(404).json({ success: false, message: `Pet id: ${petId} not found` });
-      } else {
+      const result = updatedPet[0] === 1;
+      
+      if (result) {
         res.status(200).json({ success: true, message: 'Pet updated successfully' });
+      } else {
+        res.status(404).json({ success: false, message: `Pet id: ${petId} not found` });
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:60 ~ PetController ~ updatePet ~ error:", error)
@@ -68,10 +69,10 @@ class PetController {
     try {
       const softdeleted = await Pet.destroy({ where: { id: petId } });
 
-      if (softdeleted === 0) {
-        res.status(404).json({ success: false, message: `Pet id: ${petId} not found` });
-      } else {
+      if (softdeleted) {
         res.status(200).json({ sucess: true, message: `Pet soft-deleted successfully: ${petId}` });
+      } else {
+        res.status(404).json({ success: false, message: `Pet id: ${petId} not found` });
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error)
@@ -85,10 +86,10 @@ class PetController {
     try {
       const deletedPet = await Pet.destroy({ where: { id: petId }, force: true });
 
-      if (deletedPet === 0) {
-        res.status(404).json({ success: false, error: 'Pet not found' });
-      } else {
+      if (deletedPet) {
         res.status(200).json({ message: `Pet deleted successfully, id: ${petId}` });
+      } else {
+        res.status(404).json({ success: false, error: 'Pet not found' });
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error)
@@ -102,7 +103,10 @@ class PetController {
       try {
         const restoredPet = await Pet.restore({ where: { id: petId } });
 
-        res.status(200).json({ success: true, message: `Restore with exit ${restoredPet}, Pet id: ${petId}` });
+        if(!restoredPet!) {
+          res.status(404).json({ success: false, message: `Pet id: ${petId} not found as soft deleted record` });
+        } 
+        res.status(200).json({ success: true, message: `Pet restored successfully, Pet id: ${petId}` });
       } catch (error) {
         console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error);
         res.status(500).json({ success: false, error: 'Failed to restore the pet' });
@@ -120,7 +124,7 @@ class PetController {
           }
         }
       });
-      res.json(softDeletedPets);
+      res.status(200).json(softDeletedPets);
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:10 ~ PetController ~ getAllPets ~ error:", error)
       res.status(500).json({ success: false, error: 'Failed to fetch pets', message: error });;
