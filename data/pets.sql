@@ -2,7 +2,7 @@
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role ENUM('user', 'admin', 'guest') NOT NULL DEFAULT 'user',
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -10,9 +10,10 @@ CREATE TABLE users (
     deletedAt DATE DEFAULT NULL
 );
 
-VALUES
-    ('User1', 'user1@example.com', 'password1'),
-    ('User2', 'user2@example.com', 'password2'),
+-- Insert data into the "users" table
+INSERT INTO users (name, email, password, role)
+VALUES ('Administrator', 'admin@coolblue.com', 'hashed_pass', 'admin');
+
 -- Create the "pets" table
 CREATE TABLE pets (
     id INT AUTO_INCREMENT PRIMARY KEY,

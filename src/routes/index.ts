@@ -8,7 +8,7 @@ export function initRoutes(app: Express): void {
   });
   // User routes
   app.post('/api/register', UserController.register);
-  
+  app.post('/api/login', UserController.login);
   // Pet routes
   app.get('/api/pets', PetController.getAllPets);
   app.get('/api/pets/:id', PetController.getPetById);
