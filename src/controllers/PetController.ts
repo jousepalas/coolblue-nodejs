@@ -97,19 +97,16 @@ class PetController {
     }
   }
 
-    public async restorePet(req: Request, res: Response): Promise<any> {
+    public async restorePet(req: Request, res: Response): Promise<void> {
       const petId = parseInt(req.params.id, 10);
     
       try {
         const restoredPet = await Pet.restore({ where: { id: petId } });
-        // const result = restoredPet === 1;
 
-        // if(result) {
-        //   res.status(200).json({ success: true, message: `Pet restored successfully, Pet id: ${petId}` });
-        // } else {
-        //   res.status(404).json({ success: false, message: `Pet id: ${petId} not found as soft deleted record` });
-        // }
-        res.status(200).json({ success: true, message: `Pet restored successfully with exit code: ${restoredPet}, Pet id: ${petId}` });
+        if(!restoredPet!) {
+          res.status(404).json({ success: false, message: `Pet id: ${petId} not found as soft deleted record` });
+        } 
+        res.status(200).json({ success: true, message: `Pet restored successfully, Pet id: ${petId}` });
       } catch (error) {
         console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error);
         res.status(500).json({ success: false, error: 'Failed to restore the pet' });

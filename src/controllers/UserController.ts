@@ -9,11 +9,11 @@ class UserController {
     public async register(req: Request, res: Response) {
         const { email, password, name } = req.body;
         try {
-            const passwordHash = await bcrypt.hash(password, env.SALT_ROUNDS as string);
-            // const passwordHash = await bcrypt.hash(password, 10);
+            const passwordHash = await bcrypt.hash(password, 10);
             const newUser = await User.create({ email, password: passwordHash, name });
             res.status(201).send({ success: true, data: newUser });
         } catch (error) {
+            console.log("🚀 ~ file: UserController.ts:19 ~ UserController ~ register ~ error:", error)
             res.status(500).send({success: false, message: 'Failed to create a user', error });
         }
     }
