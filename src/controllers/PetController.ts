@@ -26,7 +26,7 @@ class PetController {
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:28 ~ PetController ~ getPetById ~ error:", error)
-      res.status(500).json({ message: 'Failed to fetch pet', error });
+      res.status(500).json({ success: false, message: 'Failed to fetch pet' });
     }
   }
 
@@ -38,7 +38,7 @@ class PetController {
       res.status(201).json({success: true, data: pet});
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:40 ~ PetController ~ createPet ~ error:", error)
-      res.status(500).json({ message: 'Failed to create a pet', error });
+      res.status(500).json({ success: false, message: 'Failed to create a pet' });
     }
   }
 
@@ -59,7 +59,7 @@ class PetController {
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:60 ~ PetController ~ updatePet ~ error:", error)
-      res.status(500).json({ message: 'Failed to update the pet', error });
+      res.status(500).json({ success: false, message: 'Failed to update the pet'});
     }
   }
 
@@ -76,7 +76,7 @@ class PetController {
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error)
-      res.status(500).json({ error: 'Failed to soft-delete the pet' });
+      res.status(500).json({ success: false, message: 'Failed to soft-delete the pet' });
     }
   }
   
@@ -87,9 +87,9 @@ class PetController {
       const deletedPet = await Pet.destroy({ where: { id: petId }, force: true });
 
       if (deletedPet) {
-        res.status(200).json({ message: `Pet deleted successfully, id: ${petId}` });
+        res.status(200).json({ success: true, message: `Pet deleted successfully, id: ${petId}` });
       } else {
-        res.status(404).json({ success: false, error: 'Pet not found' });
+        res.status(404).json({ success: false, message: 'Pet not found' });
       }
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error)
@@ -109,7 +109,7 @@ class PetController {
         res.status(200).json({ success: true, message: `Pet restored successfully, Pet id: ${petId}` });
       } catch (error) {
         console.log("🚀 ~ file: petController.ts:77 ~ PetController ~ deletePet ~ error:", error);
-        res.status(500).json({ success: false, error: 'Failed to restore the pet' });
+        res.status(500).json({ success: false, message: 'Failed to restore the pet' });
       }
     }
     
@@ -127,7 +127,7 @@ class PetController {
       res.status(200).json(softDeletedPets);
     } catch (error) {
       console.log("🚀 ~ file: petController.ts:10 ~ PetController ~ getAllPets ~ error:", error)
-      res.status(500).json({ success: false, error: 'Failed to fetch pets', message: error });;
+      res.status(500).json({ success: false, message: 'Failed to fetch pets' });;
     }
   }
 

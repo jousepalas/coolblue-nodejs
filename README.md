@@ -33,6 +33,9 @@ Confidentiality, Credibility, Authenticity, Integrity, Availability, Security, A
 - build: "npx tsc",
 - serve: "node dist/index.js",
 - dev: "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/index.js\"",
+- cleanup: "rm -rf dist node_modules",
+- lazy: "npm install && npm run build && npm run dev",
+- iamlazy: "npm run cleanup && npm run lazy"
 
 # Author
 - @jousepalas
